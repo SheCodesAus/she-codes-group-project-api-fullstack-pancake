@@ -40,16 +40,20 @@ class WorkshopDetail(APIView):
         IsOrganiserOrReadOnly
     ]
     
+    # def get_object(self, pk):
+    #     try:
+    #         workshop = Workshop.objects.get(pk=pk) 
+    #         self.check_object_permissions(self.request,workshop)
+    #         return workshop  
+    #     except Workshop.DoesNotExist:
+    #         raise Http404
+
     def get_object(self, pk):
-        try:
-            workshop = Workshop.objects.get(pk=pk) 
-            self.check_object_permissions(self.request,workshop)
-            return workshop  
-        except Workshop.DoesNotExist:
-            raise Http404
+        return Workshop.objects.get(pk=pk)
 
     # GET request    
     def get(self, request, pk):
         workshop = self.get_object(pk)
-        serializer = WorkshopDetailSerializer(workshop)
+        # serializer = WorkshopDetailSerializer(workshop)
+        serializer = WorkshopSerializer(workshop)
         return Response(serializer.data)

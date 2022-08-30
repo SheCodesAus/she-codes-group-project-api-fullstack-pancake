@@ -16,19 +16,19 @@ class Workshop(models.Model):
     #     on_delete=models.CASCADE,
     #     related_name='organiser_workshops'
     # )
-    organiser = models.CharField(max_length=100)
-    topics = models.CharField(
-        max_length=200,
-        choices=[('HTML','HTML'),
-        ('CSS','CSS'),
-        ('Python','Python'),
-        ('Django','Django'),
-        ('DRF','DRF'),
-        ('React','React'),
-        ('PHP','PHP'),
-        ('AWS','AWS'),
-        ('Testing','Testing')
-        ])
+    # organiser = models.CharField(max_length=100)
+    # topics = models.CharField(
+    #     max_length=200,
+    #     choices=[('HTML','HTML'),
+    #     ('CSS','CSS'),
+    #     ('Python','Python'),
+    #     ('Django','Django'),
+    #     ('DRF','DRF'),
+    #     ('React','React'),
+    #     ('PHP','PHP'),
+    #     ('AWS','AWS'),
+    #     ('Testing','Testing')
+    #     ])
     # experience_level = models.enums(
     #     ['Entry-level', 'Intermediate', 'Advanced']
     # )

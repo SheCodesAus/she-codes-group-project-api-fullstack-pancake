@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
     path('workshops/', views.WorkshopList.as_view()),
-    # path('workshops/<int:pk>/', views.WorkshopDetail.as_view()),
+    path('workshops/<int:pk>/', views.WorkshopDetail.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
