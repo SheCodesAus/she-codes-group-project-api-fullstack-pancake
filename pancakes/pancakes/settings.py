@@ -39,7 +39,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'workshops.apps.WorkshopsConfig',
     'rest_framework',
-    'rest_framework.authtoken',
+    # 'rest_framework.authtoken',
     'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -55,7 +55,7 @@ REST_FRAMEWORK = {
     ]
 }
 
-AUTH_USER_MODEL = 'users.CustomUser'
+# AUTH_USER_MODEL = 'users.CustomUser'
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
