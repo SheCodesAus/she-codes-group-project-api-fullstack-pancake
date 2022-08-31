@@ -1,5 +1,5 @@
 from django.db import models
-# from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model
 
 
 # WIP - Not finalised.
@@ -11,12 +11,12 @@ class Workshop(models.Model):
     is_online = models.BooleanField()
     is_in_person = models.BooleanField()
     date_and_time = models.DateTimeField()
-    # organiser = models.ForeignKey(
-    #     get_user_model(),
-    #     on_delete=models.CASCADE,
-    #     related_name='organiser_workshops'
-    # )
-    # organiser = models.CharField(max_length=100)
+    organiser = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.CASCADE,
+        # related_name='organiser_workshops'
+        null=True
+    )
     # topics = models.CharField(
     #     max_length=200,
     #     choices=[('HTML','HTML'),
