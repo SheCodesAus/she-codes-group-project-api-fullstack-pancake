@@ -14,8 +14,8 @@ class Workshop(models.Model):
     organiser = models.ForeignKey(
         get_user_model(),
         on_delete=models.CASCADE,
-        # related_name='organiser_workshops'
-        null=True
+        related_name='organiser_workshops'
+        # null=True
     )
     # topics = models.CharField(
     #     max_length=200,

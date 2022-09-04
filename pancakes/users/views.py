@@ -79,5 +79,5 @@ class CustomUserDetail(APIView):
         #    return Response(status=status.HTTP_401_UNAUTHORIZED)
         user.delete()
         return Response(
-            status=status.HTTP_204_OK        
+            status=status.HTTP_204_NO_CONTENT        
         )
