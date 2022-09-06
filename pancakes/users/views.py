@@ -74,9 +74,8 @@ class CustomUserDetail(APIView):
         if not request.user.is_authenticated:
             return Response(status=status.HTTP_401_UNAUTHORIZED)        
         user = self.get_object(pk)
-        # needs testing
-        #if request.user != user.user or not request.user.is_superuser:
-        #    return Response(status=status.HTTP_401_UNAUTHORIZED)
+        if request.user != user:
+           return Response(status=status.HTTP_401_UNAUTHORIZED)
         user.delete()
         return Response(
             status=status.HTTP_204_NO_CONTENT        
