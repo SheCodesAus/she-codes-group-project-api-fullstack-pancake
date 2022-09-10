@@ -9,6 +9,7 @@ class WorkshopSerializer(serializers.Serializer):
     workshop_link = serializers.URLField()
     is_online = serializers.BooleanField()
     is_in_person = serializers.BooleanField()
+    is_hybrid = serializers.BooleanField()
     date_and_time = serializers.DateTimeField()
     organiser = serializers.ReadOnlyField(source='organiser.id')
     # topics = serializers.CharField(max_length=200)
@@ -25,6 +26,8 @@ class WorkshopDetailSerializer(WorkshopSerializer):
         instance.workshop_link = validated_data.get('workshop_link', instance.workshop_link)
         instance.is_online = validated_data.get('is_online', instance.is_online)
         instance.is_in_person = validated_data.get('is_in_person', instance.is_in_person)
+        instance.is_hybrid = validated_data.get('is_hybrid', instance.is_hybrid)
+
         instance.date_and_time = validated_data.get('date_and_time', instance.date_and_time)
         instance.organiser = validated_data.get('organiser', instance.organiser)
         # instance.topics = validated_data.get('topics', instance.topics)
