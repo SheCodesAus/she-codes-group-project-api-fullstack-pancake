@@ -1,8 +1,19 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from multiselectfield import MultiSelectField
 
+TOPICS = (
+    ('HTML','HTML'),
+    ('CSS','CSS'),
+    ('Python','Python'),
+    ('Django','Django'),
+    ('DRF','DRF'),
+    ('React','React'),
+    ('PHP','PHP'),
+    ('AWS','AWS'),
+    ('Testing','Testing')
+)
 
-# WIP - Not finalised.
 class Workshop(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
@@ -18,18 +29,8 @@ class Workshop(models.Model):
         related_name='organiser_workshops'
         # null=True
     )
-    # topics = models.CharField(
-    #     max_length=200,
-    #     choices=[('HTML','HTML'),
-    #     ('CSS','CSS'),
-    #     ('Python','Python'),
-    #     ('Django','Django'),
-    #     ('DRF','DRF'),
-    #     ('React','React'),
-    #     ('PHP','PHP'),
-    #     ('AWS','AWS'),
-    #     ('Testing','Testing')
-    #     ])
+    topics = MultiSelectField(choices=TOPICS, max_choices=5, blank=True)
+
     # experience_level = models.enums(
     #     ['Entry-level', 'Intermediate', 'Advanced']
     # )
