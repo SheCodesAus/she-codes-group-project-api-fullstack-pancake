@@ -1,3 +1,5 @@
+from django.http import HttpResponse
+
 from django.shortcuts import render
 
 from rest_framework.views import APIView
@@ -53,4 +55,9 @@ class WorkshopDetail(APIView):
         serializer = WorkshopDetailSerializer(workshop)
         return Response(serializer.data)
 
-    
+    # DEL request
+    def delete(self, request, pk):
+        workshop = self.get_object(pk)
+        if workshop: 
+            workshop.delete()
+        return HttpResponse(status=200)
