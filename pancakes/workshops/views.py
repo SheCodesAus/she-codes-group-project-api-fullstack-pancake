@@ -58,6 +58,8 @@ class WorkshopDetail(APIView):
     # DEL request
     def delete(self, request, pk):
         workshop = self.get_object(pk)
+        if workshop.organiser!=request.user:
+            return HttpResponse(status=403)
         if workshop: 
             workshop.delete()
-        return HttpResponse(status=200)
+            return HttpResponse(status=200)
