@@ -14,6 +14,7 @@ class WorkshopSerializer(serializers.Serializer):
     date_and_time = serializers.DateTimeField()
     organiser = serializers.ReadOnlyField(source='organiser.id')
     topics = serializers.MultipleChoiceField(choices=TOPICS, allow_blank=True)
+    experience_level = serializers.CharField(max_length=20)
 
     def create(self, validated_data):
         return Workshop.objects.create(**validated_data)
@@ -32,5 +33,6 @@ class WorkshopDetailSerializer(WorkshopSerializer):
         instance.date_and_time = validated_data.get('date_and_time', instance.date_and_time)
         instance.organiser = validated_data.get('organiser', instance.organiser)
         instance.topics = validated_data.get('topics', instance.topics)
+        instance.experience_level = validated_data.get('experience_level', instance.experience_level)
         instance.save()
         return instance

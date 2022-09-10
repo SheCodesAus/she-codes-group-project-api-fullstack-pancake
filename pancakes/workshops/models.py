@@ -11,7 +11,14 @@ TOPICS = (
     ('React','React'),
     ('PHP','PHP'),
     ('AWS','AWS'),
-    ('Testing','Testing')
+    ('Testing','Testing'),
+    ('Other', 'Other')
+)
+
+EXPERIENCE_LEVEL = (
+    ('EL', 'Entry-level'),
+    ('INT', 'Intermediate'),
+    ('ADV', 'Advanced')
 )
 
 class Workshop(models.Model):
@@ -30,8 +37,4 @@ class Workshop(models.Model):
         # null=True
     )
     topics = MultiSelectField(choices=TOPICS, max_choices=5, blank=True)
-
-    # experience_level = models.enums(
-    #     ['Entry-level', 'Intermediate', 'Advanced']
-    # )
-    # # delivery_method enum
+    experience_level = models.CharField(choices=EXPERIENCE_LEVEL, max_length=20, default='Entry-level')
