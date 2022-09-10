@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Workshop
+from .models import TOPICS
 
 class WorkshopSerializer(serializers.Serializer):
     id = serializers.ReadOnlyField()
@@ -12,7 +13,7 @@ class WorkshopSerializer(serializers.Serializer):
     is_hybrid = serializers.BooleanField()
     date_and_time = serializers.DateTimeField()
     organiser = serializers.ReadOnlyField(source='organiser.id')
-    # topics = serializers.CharField(max_length=200)
+    topics = serializers.MultipleChoiceField(choices=TOPICS, allow_blank=True)
 
     def create(self, validated_data):
         return Workshop.objects.create(**validated_data)
@@ -30,6 +31,6 @@ class WorkshopDetailSerializer(WorkshopSerializer):
 
         instance.date_and_time = validated_data.get('date_and_time', instance.date_and_time)
         instance.organiser = validated_data.get('organiser', instance.organiser)
-        # instance.topics = validated_data.get('topics', instance.topics)
+        instance.topics = validated_data.get('topics', instance.topics)
         instance.save()
         return instance
