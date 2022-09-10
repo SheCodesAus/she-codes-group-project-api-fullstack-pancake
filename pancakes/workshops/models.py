@@ -28,7 +28,8 @@ class Workshop(models.Model):
     workshop_link = models.URLField()
     is_online = models.BooleanField()
     is_in_person = models.BooleanField()
-    is_hybrid = models.BooleanField()
+    # is_hybrid = models.BooleanField()
+    physical_location = models.CharField(max_length=50, default='Brisbane')
     date_and_time = models.DateTimeField()
     organiser = models.ForeignKey(
         get_user_model(),
