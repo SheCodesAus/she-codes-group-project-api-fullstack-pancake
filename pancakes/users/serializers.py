@@ -6,7 +6,7 @@ class CustomUserSerializer(serializers.Serializer):
     id = serializers.ReadOnlyField()
     username = serializers.CharField(max_length=200)
     email = serializers.CharField(max_length=200)
-    password = serializers.CharField(max_length=200)
+    password = serializers.CharField(max_length=200, write_only=True)
     first_name = serializers.CharField(max_length=50)
     last_name = serializers.CharField(max_length=50)
     profile_image = serializers.CharField(max_length=500, default='./pancakes/images/Dandelion.png')
