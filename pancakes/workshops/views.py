@@ -74,5 +74,5 @@ class WorkshopDetail(APIView):
         if workshop: 
             workshop.delete()
             return Response(
-            status=status.HTTP_204_NO_CONTENT
+                status=status.HTTP_204_NO_CONTENT
         )
