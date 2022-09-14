@@ -7,6 +7,7 @@ TOPICS = (
     ('CSS','CSS'),
     ('Python','Python'),
     ('Django','Django'),
+    ('JavaScript', 'JavaScript')
     ('DRF','DRF'),
     ('React','React'),
     ('PHP','PHP'),
@@ -36,5 +37,5 @@ class Workshop(models.Model):
         on_delete=models.CASCADE,
         related_name='organiser_workshops'
     )
-    topics = MultiSelectField(choices=TOPICS, max_choices=5, blank=True)
+    topics = MultiSelectField(choices=TOPICS, max_choices=11, blank=True)
     experience_level = models.CharField(choices=EXPERIENCE_LEVEL, max_length=20, default='Entry-level')
