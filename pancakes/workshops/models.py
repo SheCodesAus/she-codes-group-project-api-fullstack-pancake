@@ -18,7 +18,8 @@ TOPICS = (
 EXPERIENCE_LEVEL = (
     ('EL', 'Entry-level'),
     ('INT', 'Intermediate'),
-    ('ADV', 'Advanced')
+    ('ADV', 'Advanced'),
+    ('ALL', 'Everyone')
 )
 
 class Workshop(models.Model):
@@ -34,7 +35,6 @@ class Workshop(models.Model):
         get_user_model(),
         on_delete=models.CASCADE,
         related_name='organiser_workshops'
-        # null=True
     )
     topics = MultiSelectField(choices=TOPICS, max_choices=5, blank=True)
     experience_level = models.CharField(choices=EXPERIENCE_LEVEL, max_length=20, default='Entry-level')

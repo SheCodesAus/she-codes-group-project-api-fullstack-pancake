@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Workshop
 from .models import TOPICS
+from .models import EXPERIENCE_LEVEL
 
 class WorkshopSerializer(serializers.Serializer):
     id = serializers.ReadOnlyField()
@@ -14,7 +15,7 @@ class WorkshopSerializer(serializers.Serializer):
     date_and_time = serializers.DateTimeField()
     organiser = serializers.ReadOnlyField(source='organiser.id')
     topics = serializers.MultipleChoiceField(choices=TOPICS, allow_blank=True)
-    experience_level = serializers.CharField(max_length=20)
+    experience_level = serializers.CharField(choices=EXPERIENCE_LEVEL, max_length=20)
 
     def create(self, validated_data):
         return Workshop.objects.create(**validated_data)
