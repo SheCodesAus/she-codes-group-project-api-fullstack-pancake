@@ -15,7 +15,7 @@ class WorkshopSerializer(serializers.Serializer):
     date_and_time = serializers.DateTimeField()
     organiser = serializers.ReadOnlyField(source='organiser.id')
     topics = serializers.MultipleChoiceField(choices=TOPICS, allow_blank=True)
-    experience_level = serializers.CharField(choices=EXPERIENCE_LEVEL, max_length=20)
+    experience_level = serializers.ChoiceField(choices=EXPERIENCE_LEVEL)
 
     def create(self, validated_data):
         return Workshop.objects.create(**validated_data)

@@ -7,7 +7,7 @@ TOPICS = (
     ('CSS','CSS'),
     ('Python','Python'),
     ('Django','Django'),
-    ('JavaScript', 'JavaScript')
+    ('JavaScript', 'JavaScript'),
     ('DRF','DRF'),
     ('React','React'),
     ('PHP','PHP'),
